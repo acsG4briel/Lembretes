@@ -1,6 +1,8 @@
-﻿namespace Lembretes.Api.Controller
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace Lembretes.Api.Controller
 {
-    public class LembreteController
+    public class LembreteController : ControllerBase
     {
     }
 }
