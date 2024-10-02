@@ -1,0 +1,4 @@
+
+*.vsidx
+/Lembretes.Api/.vs
+/Lembretes.Api/obj
