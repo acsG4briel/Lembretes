@@ -2,3 +2,4 @@
 *.vsidx
 /Lembretes.Api/.vs
 /Lembretes.Api/obj
+Lembretes.Api/appsettings.Development.json
