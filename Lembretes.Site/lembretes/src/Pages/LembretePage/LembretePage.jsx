@@ -8,9 +8,13 @@ const LembretePage = () => {
     const [lembretes, setLembretes] = useState([]);
     const [recarregarLembretes, setRecarregarLembretes] = useState(false);
 
+    const obterLembretes = async () => {
+        var retorno = await ObterLembretes();
+        setLembretes(retorno);
+    }
+
     useEffect(() => {
-        var retorno = ObterLembretes();
-        setLembretes(retorno.lembretes);
+        obterLembretes();
         setRecarregarLembretes(false);
     }, [recarregarLembretes]);
 
