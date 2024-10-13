@@ -5,7 +5,7 @@ const CadastroLembrete = ({setLembretes, lembretes}) => {
   const [lembrete, setLembrete] = useState(null);
 
   const cadastrarLembreteEAtualizarLista = (lembrete) => {
-    lembrete.id = lembretes[lembretes.length - 1].id + 1;
+    lembrete.id = lembretes.length > 0 ?lembretes[lembretes.length - 1].id + 1 : 1;
     setLembretes((lembretesAtuais) => [...lembretesAtuais, lembrete])
 
     //IMPLEMENTAR CADASTRAR LEMBRETE CONEXÃO COM API
