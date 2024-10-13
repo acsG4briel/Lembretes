@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import { CadastrarLembrete } from "../../../Services/LembreteService";
 
-const CadastroLembrete = ({setRecarregarLembretes}) => {
+const CadastroLembrete = ({setLembretes, lembretes}) => {
   const [lembrete, setLembrete] = useState(null);
+
+  const cadastrarLembreteEAtualizarLista = (lembrete) => {
+    lembrete.id = lembretes[lembretes.length - 1].id + 1;
+    setLembretes((lembretesAtuais) => [...lembretesAtuais, lembrete])
+
+    //IMPLEMENTAR CADASTRAR LEMBRETE CONEXÃO COM API
+    CadastrarLembrete(lembrete);
+  }
 
   return (
     <div className="text-black">
@@ -26,8 +34,7 @@ const CadastroLembrete = ({setRecarregarLembretes}) => {
         type="button"
         className="w-full mt-4 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded transition duration-200"
         onClick={() => {
-            CadastrarLembrete(lembrete);
-            setRecarregarLembretes(true);
+            cadastrarLembreteEAtualizarLista(lembrete);
         }}
       >
         CRIAR

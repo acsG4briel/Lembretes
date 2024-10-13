@@ -6,28 +6,29 @@ import ListaLembretes from "../Componentes/ListaLembretes/ListaLembretes";
 
 const LembretePage = () => {
     const [lembretes, setLembretes] = useState([]);
-    const [recarregarLembretes, setRecarregarLembretes] = useState(false);
 
-    const obterLembretes = async () => {
-        var retorno = await ObterLembretes();
+    const obterLembretes = () => {
+        var retorno = ObterLembretes();
         setLembretes(retorno);
     }
 
     useEffect(() => {
+        //IMPLEMENTAR OBTER LEMBRETE DA API
         obterLembretes();
-        setRecarregarLembretes(false);
-    }, [recarregarLembretes]);
+    }, []);
 
     return (
         <div className="bg-[rgb(5,4,22)] h-screen flex justify-center items-center">
             <div class="ConteudoWrapper" className="bg-[rgb(13,11,46)] p-8 rounded-lg shadow-lg text-white max-w-md mx-auto">
                 <CadastroLembrete 
-                    setRecarregarLembretes={setRecarregarLembretes}
+                    setLembretes={setLembretes}
+                    lembretes={lembretes}
                 />
 
                 {lembretes.length > 0 && 
                     <ListaLembretes 
-                        lembretes={lembretes} 
+                        lembretes={lembretes}
+                        setLembretes={setLembretes}
                     />
                 }
             </div>
